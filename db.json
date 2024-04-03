@@ -1,33 +1,159 @@
-{
-  "projects": [
-    {
-      "id": 1,
-      "title": "Module 2 Project",
-      "description": "Module 2 project - Integrate a React app with backend.",
-      "userId": 1
-    },
-    {
-      "id": 2,
-      "title": "Module 3 Project",
-      "description": "Create a full-stack application using MERN stack.",
-      "userId": 1
-    }
-  ],
-  "tasks": [
-    {
-      "id": 1,
-      "projectId": 1,
-      "description": "Use Vite to create a basic React app"
-    },
-    {
-      "id": 2,
-      "projectId": 1,
-      "description": "Install React Router and setup routes"
-    },
-    {
-      "id": 3,
-      "projectId": 2,
-      "description": "Create a form with 5 input fields"
-    }
-  ]
-}
+[
+	{
+		"id": 1,
+		"class": "two seater",
+		"cylinders": 12,
+		"drive": "rwd",
+		"fuel_type": "gas",
+		"brand": "ferrari",
+		"model": "testarossa",
+		"transmission": "manual",
+		"year": 1985,
+		"color": "red",
+		"image": "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRlc3RhcnJvc2ElMjBmZXJyYXJpfGVufDB8fDB8fHww"
+	},
+	{
+		"id": 2,
+		"class": "two seater",
+		"cylinders": 4,
+		"drive": "rwd",
+		"fuel_type": "gas",
+		"brand": "alfa romeo",
+		"model": "spider veloce 2000",
+		"transmission": "manual",
+		"year": 1985,
+		"color": "red",
+		"image": "https://imgs.search.brave.com/VSBsZoC2sWSBhKTOrXboN7pr5dSGAaxSSWj2Sg1B3Z4/rs:fit:860:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy81/LzU4LzAzX1NwaWRl/cl9sa3MuanBn"
+	},
+	{
+		"id": 3,
+		"class": "subcompact car",
+		"cylinders": 4,
+		"drive": "fwd",
+		"fuel_type": "gas",
+		"brand": "dodge",
+		"model": "charger",
+		"transmission": "manual",
+		"year": 1985,
+		"color": "white",
+		"image": "https://imgs.search.brave.com/IbuDo9yQFGSSlEbTmV69-jGnPSs5QoUuTfRhlfm95CU/rs:fit:860:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9k/L2Q1LzIwMTlfRG9k/Z2VfQ2hhcmdlcl9S/LVRfSU1HXzUzODEu/anBn"
+	},
+	{
+		"id": 4,
+		"class": "van",
+		"cylinders": 8,
+		"drive": "rwd",
+		"fuel_type": "gas",
+		"brand": "dodge",
+		"model": "b150/b250 wagon 2wd",
+		"transmission": "automatic",
+		"year": 1985,
+		"color": "gray",
+		"image": "https://imgs.search.brave.com/wZWfe1-GRZsBUIHe4NjaiR2CPvGLaxpkz6Hse4AQxHw/rs:fit:860:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9m/L2ZhLzE5NzBzX0Rv/ZGdlX1Nwb3J0VmFu/LmpwZw"
+	},
+	{
+		"id": 5,
+		"class": "compact car",
+		"cylinders": 4,
+		"drive": "awd",
+		"fuel_type": "gas",
+		"brand": "subaru",
+		"model": "legacy awd turbo",
+		"transmission": "manual",
+		"year": 1993,
+		"color": "blue",
+		"image": "https://imgs.search.brave.com/6M_jcNxJ_OEG55HgruCFyJQGa6ax9yN4IGrNlLAc-Co/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWdh/bnVuY2lvcy5taXR1/bGEubmV0L21lZGl1/bS9zdWJhcnVfbGVn/YWN5XzIwMTFfc3Vi/YXJ1X2xlZ2FjeV8y/XzVfZ3RfYV9hd2Rf/dHVyYm9fc3RpX3Jh/bGx5Xzg5ODAwNTY3/MDg2MTI4MjIzNTIu/anBn"
+	},
+	{
+		"id": 6,
+		"class": "midsize station wagon",
+		"fuel_type": "electricity",
+		"brand": "nissan",
+		"model": "altra ev",
+		"year": 2000,
+		"color": "grey",
+		"image": "https://wieck-nissanao-production.s3.amazonaws.com/photos/914e20af0278f0c330098d4297d7772e91c2f267/preview-928x522.jpg"
+	},
+	{
+		"id": 7,
+		"class": "sport utility vehicle",
+		"fuel_type": "electricity",
+		"brand": "toyota",
+		"model": "rav4 ev",
+		"year": 2000,
+		"color": "white",
+		"image": "https://p6.focus.de/img/fotos/id_1090545/erfolgreiche-herzverpflanzung.jpg?im=Resize%3D%28800%2C533%29&impolicy=perceptual&quality=mediumHigh&hash=ec70fcfcfa877485d3224b01ddcfef9a97c258d0b4ee72430b8c7ba87e37c743"
+	},
+	{
+		"id": 8,
+		"class": "sport utility vehicle",
+		"fuel_type": "electricity",
+		"brand": "toyota",
+		"model": "rav4 ev",
+		"year": 2001,
+		"color": "gray",
+		"image": "https://i.auto-bild.de/ir_img/1/0/4/9/2/7/8/4277791f048d5e60.jpg?impolicy=leadteaser"
+	},
+	{
+		"id": 9,
+		"class": "sport utility vehicle",
+		"fuel_type": "electricity",
+		"brand": "ford",
+		"model": "explorer usps electric",
+		"year": 2001,
+		"color": "gray",
+		"image": "https://assets2.cbsnewsstatic.com/hub/i/r/2023/03/01/d58122a9-d31b-43c2-8e44-a645b9804648/thumbnail/640x427/7d90df7f22f515d8a682377cc02eb028/gettyimages-1246026628.jpg?v=3d62f4cc0092e6eb151a9685301ed284"
+	},
+	{
+		"id": 10,
+		"class": "large car",
+		"cylinders": 6,
+		"drive": "rwd",
+		"fuel_type": "diesel",
+		"brand": "mercedes-benz",
+		"model": "300sd",
+		"transmission": "automatic",
+		"year": 1993,
+		"color": "black",
+		"image": "https://media.carsandbids.com/cdn-cgi/image/width=2080,quality=70/d9b636c2ec84ddc3bc7f2eb32861b39bdd5f9683/photos/36QABzOn.MJGBT_6Mt-(edit).jpg?t=163185936742"
+	},
+	{
+		"id": 11,
+		"class": "van",
+		"cylinders": 8,
+		"drive": "rwd",
+		"fuel_type": "diesel",
+		"brand": "gmc",
+		"model": "g15/25 rally 2wd",
+		"transmission": "automatic",
+		"year": 1985,
+		"color": "white",
+		"image": "https://static3d.felgenshop.de/keskin-kt15-black-lip-polish-felge-mit-reifen-silber-schwarz-mehrfarbig-in-18zoll-winterfelge-alufelge-auf-silbernem-bmw-218i-typ-ukl-l-f46-gran-tourer-220i-216d-218d-220d-xdrive-214d-216i-f2gt-old-industrial-hall-max5000mm-2022-frontansicht-1-1920.jpg"
+	},
+	{
+		"id": 12,
+		"class": "standard pickup truck",
+		"cylinders": 8,
+		"drive": "awd",
+		"fuel_type": "diesel",
+		"make": "chevrolet",
+		"model": "k1500 pickup 4wd",
+		"transmission": "automatic",
+		"year": 1993,
+		"color": "wine",
+		"image": "https://cdn.dealeraccelerate.com/country/1/362/25696/1920x1440/1990-chevrolet-1500-pickups-reg-cab-117-5-4wd"
+	},
+	{
+		"id": 13,
+		"class": "standard pickup truck",
+		"cylinders": 8,
+		"drive": "awd",
+		"fuel_type": "diesel",
+		"make": "chevrolet",
+		"model": "pickup 2500 4wd",
+		"transmission": "automatic",
+		"year": 1993,
+		"color": "blue",
+		"image": "https://vehicle-images.dealerinspire.com/2b12-11001990/3C6UR5FL6RG177691/2c1f9204fa14a6eb2697c2e4793b0315.jpg"
+	}
+]
