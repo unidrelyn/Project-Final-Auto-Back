@@ -6,7 +6,6 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const auth = require("./routes/auth.routes");
 const CarModel = require("./models/car.model");
-const PORT = 5005;
 
 app.use(express.json());
 app.use(morgan("dev"));
@@ -108,6 +107,9 @@ app.delete("/api/cars/:carsId", (req, res) => {
 		});
 });
 
-app.listen(PORT, () => {
-	console.log(`Server listening on port ${PORT}`);
+app.listen(process.env.PORT, () => {
+	console.log(`Server listening on port ${process.env.PORT}`);
+	if (!process.env.TOKEN_SECRET) {
+		throw new Error("TOKEN_SECRET no está configurado");
+	}
 });
