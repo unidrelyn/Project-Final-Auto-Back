@@ -39,7 +39,8 @@ app.use(
 	})
 );
 
-app.post("/cars", (req, res) => {
+//Routes
+app.post("/api/cars", (req, res) => {
 	CarModel.create(req.body)
 		.then((car) => {
 			res.status(201).json(car);
@@ -50,7 +51,7 @@ app.post("/cars", (req, res) => {
 		});
 });
 
-app.get("/cars", (req, res) => {
+app.get("/api/cars", (req, res) => {
 	CarModel.find()
 		.then((cars) => {
 			console.log(cars);
@@ -60,6 +61,36 @@ app.get("/cars", (req, res) => {
 		.catch((error) => {
 			console.error("Error retrieving cars:", error);
 			res.status(500).json({ error: "Failed to retrieve cars" });
+		});
+});
+
+app.get("/api/cars/:carId", (req, res) => {
+	const { carId } = req.params;
+	CarModel.findById(carId)
+		.then((car) => {
+			if (!car) {
+				return res.status(404).json({ message: "car not found!" });
+			}
+			res.status(200).json(car);
+		})
+		.catch((err) => {
+			console.log(err);
+			res.status(500).json({ err: "Failed to retrieve the car" });
+		});
+});
+
+app.put("/api/cars/:carsId", (req, res) => {
+	const carId = req.params.carsId;
+	CarModel.findByIdAndUpdate(carId, req.body, { new: true })
+		.then((updatedCar) => {
+			if (!updatedCar) {
+				return res.status(500).json({ error: "Car not found" });
+			}
+			res.status(200).json(updatedCar);
+		})
+		.catch((err) => {
+			console.log("Error updating car", err);
+			res.status(500).json({ error: "Failed to update car" });
 		});
 });
 
