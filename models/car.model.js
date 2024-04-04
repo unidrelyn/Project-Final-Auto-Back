@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 
 const carSchema = new Schema({
 	id: { type: Number, unique: true },
+	price: { type: String },
 	class: { type: String },
 	cylinders: { type: Number },
 	drive: { type: String, enum: ["fwd", "rwd", "awd", "4wd"] },
