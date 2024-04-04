@@ -54,8 +54,6 @@ app.post("/api/cars", (req, res) => {
 app.get("/api/cars", (req, res) => {
 	CarModel.find()
 		.then((cars) => {
-			console.log(cars);
-			console.log("aca");
 			res.status(200).json(cars);
 		})
 		.catch((error) => {
@@ -91,6 +89,22 @@ app.put("/api/cars/:carsId", (req, res) => {
 		.catch((err) => {
 			console.log("Error updating car", err);
 			res.status(500).json({ error: "Failed to update car" });
+		});
+});
+
+app.delete("/api/cars/:carsId", (req, res) => {
+	const { carsId } = req.params;
+	CarModelModel.findByIdAndDelete(carsId)
+		.then((deletedCar) => {
+			if (!deletedCar) {
+				return res.status(404).json({ error: "Car does not exist!" });
+			}
+			console.log("Car deleteed");
+			res.status(204).end();
+		})
+		.catch((err) => {
+			console.error("Error whil deleting a car", err);
+			res.status(500).json({ error: "Deleted car failed" });
 		});
 });
 
