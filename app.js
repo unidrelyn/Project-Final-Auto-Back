@@ -109,7 +109,7 @@ app.delete("/api/cars/:carsId", (req, res) => {
 
 app.listen(process.env.PORT, () => {
 	console.log(`Server listening on port ${process.env.PORT}`);
-	if (!process.env.TOKEN_SECRET) {
+	/*if (!process.env.TOKEN_SECRET) {
 		throw new Error("TOKEN_SECRET no está configurado");
-	}
+	}*/
 });
