@@ -5,7 +5,8 @@ const morgan = require("morgan");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const auth = require("./routes/auth.routes");
-const cars = require("./db.json");
+const CarModel = require("./models/car.model");
+const PORT = 5005;
 
 app.use(express.json());
 app.use(morgan("dev"));
@@ -22,18 +23,46 @@ const errorHandler = (err, req, res, next) => {
 app.use(errorHandler);
 
 mongoose
-	.connect("mongodb://127.0.0.1:27017")
-	.then((x) =>
-		console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
-	)
+	.connect("mongodb://127.0.0.1:27017/ProjectFinal")
+	.then((x) => {
+		console.log(
+			`Connected to Mongo! Database name: "${x.connections[0].name}"`
+		);
+	})
 	.catch((err) => {
 		console.error("Error connecting to mongo", err);
 	});
 
 app.use(
 	cors({
-		origin: ["http://localhost:5173", "http://localhost:5005"],
+		origin: ["http://localhost:5173", "http://www.example.com"],
 	})
 );
 
-app.get("/api/cars", (req, res) => res.json(cars));
+app.post("/cars", (req, res) => {
+	CarModel.create(req.body)
+		.then((car) => {
+			res.status(201).json(car);
+		})
+		.catch((err) => {
+			console.log(err);
+			res.status(500).json(err);
+		});
+});
+
+app.get("/cars", (req, res) => {
+	CarModel.find()
+		.then((cars) => {
+			console.log(cars);
+			console.log("aca");
+			res.status(200).json(cars);
+		})
+		.catch((error) => {
+			console.error("Error retrieving cars:", error);
+			res.status(500).json({ error: "Failed to retrieve cars" });
+		});
+});
+
+app.listen(PORT, () => {
+	console.log(`Server listening on port ${PORT}`);
+});
