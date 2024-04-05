@@ -21,8 +21,10 @@ const errorHandler = (err, req, res, next) => {
 
 app.use(errorHandler);
 
+const connectionString = process.env.DATABASE_URL;
+
 mongoose
-	.connect("mongodb://127.0.0.1:27017/ProjectFinal")
+	.connect(connectionString)
 	.then((x) => {
 		console.log(
 			`Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -56,8 +58,8 @@ app.get("/api/cars", (req, res) => {
 			res.status(200).json(cars);
 		})
 		.catch((error) => {
-			console.error("Error retrieving cars:", error);
-			res.status(500).json({ error: "Failed to retrieve cars" });
+			console.log("Error retrieving cars:", error);
+			res.status(500).json(error);
 		});
 });
 
