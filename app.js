@@ -6,7 +6,6 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const auth = require("./routes/auth.routes");
 const CarModel = require("./models/car.model");
-const PORT = 5005;
 
 app.use(express.json());
 app.use(morgan("dev"));
@@ -39,7 +38,8 @@ app.use(
 	})
 );
 
-app.post("/cars", (req, res) => {
+//Routes
+app.post("/api/cars", (req, res) => {
 	CarModel.create(req.body)
 		.then((car) => {
 			res.status(201).json(car);
@@ -50,11 +50,9 @@ app.post("/cars", (req, res) => {
 		});
 });
 
-app.get("/cars", (req, res) => {
+app.get("/api/cars", (req, res) => {
 	CarModel.find()
 		.then((cars) => {
-			console.log(cars);
-			console.log("aca");
 			res.status(200).json(cars);
 		})
 		.catch((error) => {
@@ -63,6 +61,55 @@ app.get("/cars", (req, res) => {
 		});
 });
 
-app.listen(PORT, () => {
-	console.log(`Server listening on port ${PORT}`);
+app.get("/api/cars/:carId", (req, res) => {
+	const { carId } = req.params;
+	CarModel.findById(carId)
+		.then((car) => {
+			if (!car) {
+				return res.status(404).json({ message: "car not found!" });
+			}
+			res.status(200).json(car);
+		})
+		.catch((err) => {
+			console.log(err);
+			res.status(500).json({ err: "Failed to retrieve the car" });
+		});
+});
+
+app.put("/api/cars/:carsId", (req, res) => {
+	const carId = req.params.carsId;
+	CarModel.findByIdAndUpdate(carId, req.body, { new: true })
+		.then((updatedCar) => {
+			if (!updatedCar) {
+				return res.status(500).json({ error: "Car not found" });
+			}
+			res.status(200).json(updatedCar);
+		})
+		.catch((err) => {
+			console.log("Error updating car", err);
+			res.status(500).json({ error: "Failed to update car" });
+		});
+});
+
+app.delete("/api/cars/:carsId", (req, res) => {
+	const { carsId } = req.params;
+	CarModelModel.findByIdAndDelete(carsId)
+		.then((deletedCar) => {
+			if (!deletedCar) {
+				return res.status(404).json({ error: "Car does not exist!" });
+			}
+			console.log("Car deleteed");
+			res.status(204).end();
+		})
+		.catch((err) => {
+			console.error("Error whil deleting a car", err);
+			res.status(500).json({ error: "Deleted car failed" });
+		});
+});
+
+app.listen(process.env.PORT, () => {
+	console.log(`Server listening on port ${process.env.PORT}`);
+	/*if (!process.env.TOKEN_SECRET) {
+		throw new Error("TOKEN_SECRET no está configurado");
+	}*/
 });
