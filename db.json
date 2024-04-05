@@ -1,4 +1,6 @@
-[
+{
+  "cars": [
+ 
 	{
 		"id": 1,
 		"price": "100000 Eur",
@@ -337,3 +339,5 @@
 		"image": "https://cdn.prod.www.spiegel.de/images/cc4a3099-0001-0004-0000-000001002858_w1200_r2_fpx55.65_fpy48.96.jpg"
 	}
 ]
+
+}
