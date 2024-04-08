@@ -6,6 +6,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const auth = require("./routes/auth.routes");
 const CarModel = require("./models/car.model");
+const OrderModel = require('./models/order.model');
 
 app.use(express.json());
 app.use(morgan("dev"));
@@ -113,3 +114,22 @@ app.listen(process.env.PORT, () => {
 		throw new Error("TOKEN_SECRET no está configurado");
 	}*/
 });
+
+app.post('/api/orders', (req, res) => {
+	OrderModel.create(req.body)
+	  .then(order => res.status(201).json(order))
+	  .catch(err => {
+		console.error("Error creating order:", err);
+		res.status(500).json({ error: "Failed to create order" });
+	  });
+  });
+  
+  app.get('/api/orders', async (req, res) => {
+	try {
+	  const orders = await OrderModel.find(); // Fetch all orders from the database
+	  res.status(200).json(orders); // Send the orders back to the client
+	} catch (error) {
+	  console.error('Failed to retrieve orders:', error);
+	  res.status(500).json({ error: 'Failed to retrieve orders' });
+	}
+  });
