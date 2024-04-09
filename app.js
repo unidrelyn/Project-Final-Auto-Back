@@ -21,7 +21,8 @@ const errorHandler = (err, req, res, next) => {
 
 app.use(errorHandler);
 
-const connectionString = process.env.DATABASE_URL;
+const connectionString =
+	process.env.DATABASE_URL || "mongodb://127.0.0.1:27017";
 
 mongoose
 	.connect(connectionString)
