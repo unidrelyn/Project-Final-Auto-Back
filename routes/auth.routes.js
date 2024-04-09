@@ -29,7 +29,8 @@ router.post("/auth/signup", (req, res, next) => {
 	}
 
 	// Use regex to validate the password format
-	const passwordRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+	const passwordRegex =
+		/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{6,16}$/; // /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{6,16}$/
 	if (!passwordRegex.test(password)) {
 		res.status(400).json({
 			message:
