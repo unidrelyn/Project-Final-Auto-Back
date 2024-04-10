@@ -13,6 +13,11 @@ app.use(morgan("dev"));
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(
+	cors({
+		origin: ["http://localhost:5173", "http://www.example.com"],
+	})
+);
 app.use(auth);
 
 const errorHandler = (err, req, res, next) => {
@@ -35,12 +40,6 @@ mongoose
 	.catch((err) => {
 		console.error("Error connecting to mongo", err);
 	});
-
-app.use(
-	cors({
-		origin: ["http://localhost:5173", "http://www.example.com"],
-	})
-);
 
 //Routes
 app.post("/api/cars", (req, res) => {
