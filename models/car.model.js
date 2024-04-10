@@ -6,7 +6,7 @@ const carSchema = new Schema({
 	id: { type: Number, unique: true },
 	price: { type: String, default: "0" },
 	class: { type: String, default: "Not Specified" },
-	cylinders: { type: Number, default: "Not Specified" },
+	cylinders: { type: Number, default: 0 },
 	drive: {
 		type: String,
 		enum: ["fwd", "rwd", "awd", "4wd"],
@@ -24,7 +24,7 @@ const carSchema = new Schema({
 		enum: ["manual", "automatic"],
 		default: "Not Specified",
 	},
-	year: { type: Number, default: "Not Specified" },
+	year: { type: Number, default: 1900 },
 	color: { type: String, default: "Not Specified" },
 	image: {
 		type: String,
