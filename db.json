@@ -16,6 +16,22 @@
       "make": "Ferrari"
     },
     {
+      "id": "4",
+      "price": "20000",
+      "class": "van",
+      "cylinders": 8,
+      "drive": "rwd",
+      "fuel_type": "gas",
+      "brand": "dodge",
+      "model": "Wagon",
+      "transmission": "automatic",
+      "year": 1985,
+      "color": "gray",
+      "image": "https://imgs.search.brave.com/wZWfe1-GRZsBUIHe4NjaiR2CPvGLaxpkz6Hse4AQxHw/rs:fit:860:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9m/L2ZhLzE5NzBzX0Rv/ZGdlX1Nwb3J0VmFu/LmpwZw",
+      "make": "VW",
+      "description": ""
+    },
+    {
       "id": "5",
       "price": "110000 Eur",
       "class": "compact car",
