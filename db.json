@@ -8,53 +8,12 @@
       "drive": "rwd",
       "fuel_type": "gas",
       "brand": "ferrari",
-      "model": "testarossa",
+      "model": "Rossa",
       "transmission": "manual",
       "year": 1985,
       "color": "red",
-      "image": "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRlc3RhcnJvc2ElMjBmZXJyYXJpfGVufDB8fDB8fHww"
-    },
-    {
-      "id": "2",
-      "price": "80000 Eur",
-      "class": "two seater",
-      "cylinders": 4,
-      "drive": "rwd",
-      "fuel_type": "gas",
-      "brand": "alfa romeo",
-      "model": "spider veloce 2000",
-      "transmission": "manual",
-      "year": 1985,
-      "color": "red",
-      "image": "https://imgs.search.brave.com/VSBsZoC2sWSBhKTOrXboN7pr5dSGAaxSSWj2Sg1B3Z4/rs:fit:860:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy81/LzU4LzAzX1NwaWRl/cl9sa3MuanBn"
-    },
-    {
-      "id": "3",
-      "price": "50000 Eur",
-      "class": "subcompact car",
-      "cylinders": 4,
-      "drive": "fwd",
-      "fuel_type": "gas",
-      "brand": "dodge",
-      "model": "charger",
-      "transmission": "manual",
-      "year": 1985,
-      "color": "white",
-      "image": "https://imgs.search.brave.com/IbuDo9yQFGSSlEbTmV69-jGnPSs5QoUuTfRhlfm95CU/rs:fit:860:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9k/L2Q1LzIwMTlfRG9k/Z2VfQ2hhcmdlcl9S/LVRfSU1HXzUzODEu/anBn"
-    },
-    {
-      "id": "4",
-      "price": "60000 Eur",
-      "class": "van",
-      "cylinders": 8,
-      "drive": "rwd",
-      "fuel_type": "gas",
-      "brand": "dodge",
-      "model": "b150/b250 wagon 2wd",
-      "transmission": "automatic",
-      "year": 1985,
-      "color": "gray",
-      "image": "https://imgs.search.brave.com/wZWfe1-GRZsBUIHe4NjaiR2CPvGLaxpkz6Hse4AQxHw/rs:fit:860:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9m/L2ZhLzE5NzBzX0Rv/ZGdlX1Nwb3J0VmFu/LmpwZw"
+      "image": "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRlc3RhcnJvc2ElMjBmZXJyYXJpfGVufDB8fDB8fHww",
+      "make": "Ferrari"
     },
     {
       "id": "5",
@@ -64,11 +23,12 @@
       "drive": "awd",
       "fuel_type": "gas",
       "brand": "subaru",
-      "model": "legacy awd turbo",
+      "model": "AWD Turbo",
       "transmission": "manual",
       "year": 1993,
       "color": "blue",
-      "image": "https://imgs.search.brave.com/6M_jcNxJ_OEG55HgruCFyJQGa6ax9yN4IGrNlLAc-Co/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWdh/bnVuY2lvcy5taXR1/bGEubmV0L21lZGl1/bS9zdWJhcnVfbGVn/YWN5XzIwMTFfc3Vi/YXJ1X2xlZ2FjeV8y/XzVfZ3RfYV9hd2Rf/dHVyYm9fc3RpX3Jh/bGx5Xzg5ODAwNTY3/MDg2MTI4MjIzNTIu/anBn"
+      "image": "https://imgs.search.brave.com/6M_jcNxJ_OEG55HgruCFyJQGa6ax9yN4IGrNlLAc-Co/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWdh/bnVuY2lvcy5taXR1/bGEubmV0L21lZGl1/bS9zdWJhcnVfbGVn/YWN5XzIwMTFfc3Vi/YXJ1X2xlZ2FjeV8y/XzVfZ3RfYV9hd2Rf/dHVyYm9fc3RpX3Jh/bGx5Xzg5ODAwNTY3/MDg2MTI4MjIzNTIu/anBn",
+      "make": "Legacy"
     },
     {
       "id": "6",
@@ -80,17 +40,6 @@
       "year": 2000,
       "color": "grey",
       "image": "https://wieck-nissanao-production.s3.amazonaws.com/photos/914e20af0278f0c330098d4297d7772e91c2f267/preview-928x522.jpg"
-    },
-    {
-      "id": "7",
-      "price": "45000 Eur",
-      "class": "sport utility vehicle",
-      "fuel_type": "electricity",
-      "brand": "toyota",
-      "model": "rav4 ev",
-      "year": 2000,
-      "color": "white",
-      "image": "https://p6.focus.de/img/fotos/id_1090545/erfolgreiche-herzverpflanzung.jpg?im=Resize%3D%28800%2C533%29&impolicy=perceptual&quality=mediumHigh&hash=ec70fcfcfa877485d3224b01ddcfef9a97c258d0b4ee72430b8c7ba87e37c743"
     },
     {
       "id": "8",
@@ -325,7 +274,7 @@
   ],
   "orders": [
     {
-      "id": 1,
+      "id": "1",
       "customerInfo": {
         "fullName": "John Doe",
         "email": "john@example.com",
@@ -378,6 +327,55 @@
         }
       ],
       "paymentMethod": "creditCard"
+    },
+    {
+      "id": "e057",
+      "customerInfo": {
+        "fullName": "Michael R Misurell",
+        "email": "m.misurell@gmail.com",
+        "address": "Altenbraker Straße 18"
+      },
+      "items": [
+        {
+          "carId": "1",
+          "quantity": 1
+        }
+      ],
+      "paymentMethod": "bankTransfer"
+    },
+    {
+      "id": "bcab",
+      "customerInfo": {
+        "fullName": "Michael R Misurell",
+        "email": "m.misurell@gmail.com",
+        "address": "Altenbraker Straße 18"
+      },
+      "items": [
+        {
+          "carId": "1",
+          "quantity": 1
+        },
+        {
+          "carId": "2",
+          "quantity": 1
+        }
+      ],
+      "paymentMethod": "bankTransfer"
+    },
+    {
+      "id": "b15a",
+      "customerInfo": {
+        "fullName": "Michael R Misurell",
+        "email": "m.misurell@gmail.com",
+        "address": "Altenbraker Straße 18"
+      },
+      "items": [
+        {
+          "carId": "5",
+          "quantity": 1
+        }
+      ],
+      "paymentMethod": "paypal"
     }
   ]
 }
