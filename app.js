@@ -13,6 +13,12 @@ app.use(morgan("dev"));
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(
+	cors({
+		origin: ["http://localhost:5173", "http://www.example.com"],
+	})
+);
+
 app.use(auth);
 
 const errorHandler = (err, req, res, next) => {
@@ -36,11 +42,6 @@ mongoose
 		console.error("Error connecting to mongo", err);
 	});
 
-app.use(
-	cors({
-		origin: ["http://localhost:5173", "http://www.example.com"],
-	})
-);
 
 //Routes
 app.post("/api/cars", (req, res) => {
@@ -96,20 +97,21 @@ app.put("/api/cars/:carsId", (req, res) => {
 });
 
 app.delete("/api/cars/:carsId", (req, res) => {
-	const { carsId } = req.params;
-	CarModelModel.findByIdAndDelete(carsId)
-		.then((deletedCar) => {
-			if (!deletedCar) {
-				return res.status(404).json({ error: "Car does not exist!" });
-			}
-			console.log("Car deleteed");
-			res.status(204).end();
-		})
-		.catch((err) => {
-			console.error("Error whil deleting a car", err);
-			res.status(500).json({ error: "Deleted car failed" });
-		});
-});
+	const { carsId } = req.params; // Ensure this param name matches your route parameter
+	CarModel.findByIdAndDelete(carsId)
+	  .then((deletedCar) => {
+		if (!deletedCar) {
+		  // If no car was found to delete
+		  return res.status(404).json({ error: "Car does not exist!" });
+		}
+		console.log("Car deleted");
+		res.status(204).end(); // 204 No Content indicates successful deletion without sending a body
+	  })
+	  .catch((err) => {
+		console.error("Error while deleting a car", err);
+		res.status(500).json({ error: "Failed to delete the car" });
+	  });
+  });
 
 app.listen(process.env.PORT, () => {
 	console.log(`Server listening on port ${process.env.PORT}`);
