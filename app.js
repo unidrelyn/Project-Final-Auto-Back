@@ -6,7 +6,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const auth = require("./routes/auth.routes");
 const CarModel = require("./models/car.model");
-const OrderModel = require('./models/order.model');
+const OrderModel = require("./models/order.model");
 
 app.use(express.json());
 app.use(morgan("dev"));
@@ -15,7 +15,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(
 	cors({
-		origin: ["http://localhost:5173", "http://www.example.com"],
+
+		origin: ["http://localhost:5173", "https://autoexchange.netlify.app"],
 	})
 );
 
@@ -97,21 +98,42 @@ app.put("/api/cars/:carsId", (req, res) => {
 });
 
 app.delete("/api/cars/:carsId", (req, res) => {
-	const { carsId } = req.params; // Ensure this param name matches your route parameter
+
+	const { carsId } = req.params;
+	console.log(carsId);
 	CarModel.findByIdAndDelete(carsId)
-	  .then((deletedCar) => {
-		if (!deletedCar) {
-		  // If no car was found to delete
-		  return res.status(404).json({ error: "Car does not exist!" });
-		}
-		console.log("Car deleted");
-		res.status(204).end(); // 204 No Content indicates successful deletion without sending a body
-	  })
-	  .catch((err) => {
-		console.error("Error while deleting a car", err);
-		res.status(500).json({ error: "Failed to delete the car" });
-	  });
-  });
+		.then((deletedCar) => {
+			if (!deletedCar) {
+				return res.status(404).json({ error: "Car does not exist!" });
+			}
+			console.log("Car deleteed");
+			res.status(204).end();
+		})
+		.catch((err) => {
+			console.error("Error whil deleting a car", err);
+			res.status(500).json({ error: "Deleted car failed" });
+		});
+});
+
+
+app.post("/api/orders", (req, res) => {
+	OrderModel.create(req.body)
+		.then((order) => res.status(201).json(order))
+		.catch((err) => {
+			console.error("Error creating order:", err);
+			res.status(500).json({ error: "Failed to create order" });
+		});
+});
+
+app.get("/api/orders", async (req, res) => {
+	try {
+		const orders = await OrderModel.find(); // Fetch all orders from the database
+		res.status(200).json(orders); // Send the orders back to the client
+	} catch (error) {
+		console.error("Failed to retrieve orders:", error);
+		res.status(500).json({ error: "Failed to retrieve orders" });
+	}
+});
 
 app.listen(process.env.PORT, () => {
 	console.log(`Server listening on port ${process.env.PORT}`);
@@ -119,22 +141,3 @@ app.listen(process.env.PORT, () => {
 		throw new Error("TOKEN_SECRET no está configurado");
 	}*/
 });
-
-app.post('/api/orders', (req, res) => {
-	OrderModel.create(req.body)
-	  .then(order => res.status(201).json(order))
-	  .catch(err => {
-		console.error("Error creating order:", err);
-		res.status(500).json({ error: "Failed to create order" });
-	  });
-  });
-  
-  app.get('/api/orders', async (req, res) => {
-	try {
-	  const orders = await OrderModel.find(); // Fetch all orders from the database
-	  res.status(200).json(orders); // Send the orders back to the client
-	} catch (error) {
-	  console.error('Failed to retrieve orders:', error);
-	  res.status(500).json({ error: 'Failed to retrieve orders' });
-	}
-  });
