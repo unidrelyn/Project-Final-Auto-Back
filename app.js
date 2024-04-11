@@ -15,9 +15,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(
 	cors({
+
 		origin: ["http://localhost:5173", "https://autoexchange.netlify.app"],
 	})
 );
+
 app.use(auth);
 
 const errorHandler = (err, req, res, next) => {
@@ -40,6 +42,7 @@ mongoose
 	.catch((err) => {
 		console.error("Error connecting to mongo", err);
 	});
+
 
 //Routes
 app.post("/api/cars", (req, res) => {
@@ -95,6 +98,7 @@ app.put("/api/cars/:carsId", (req, res) => {
 });
 
 app.delete("/api/cars/:carsId", (req, res) => {
+
 	const { carsId } = req.params;
 	console.log(carsId);
 	CarModel.findByIdAndDelete(carsId)
@@ -110,6 +114,7 @@ app.delete("/api/cars/:carsId", (req, res) => {
 			res.status(500).json({ error: "Deleted car failed" });
 		});
 });
+
 
 app.post("/api/orders", (req, res) => {
 	OrderModel.create(req.body)
